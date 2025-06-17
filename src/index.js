@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 7777;
+const port = 3000;
 const connectDB = require('./config/database');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
