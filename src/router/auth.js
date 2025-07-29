@@ -6,8 +6,6 @@ const { isValidData } = require('../utilis/validation');
 
 const authRouter = express.Router();
 
-const { SECRET_KEY } = require('../constant/static');
-
 authRouter.post('/signup', async (req, res) => {
     try {
         const userData = req.body;
@@ -15,7 +13,7 @@ authRouter.post('/signup', async (req, res) => {
         const user = new UserModel({ ...userData, password: passwordHash });
 
         const savedUser = await user.save();
-        const token = jwt.sign({ _id: savedUser._id }, SECRET_KEY);
+        const token = jwt.sign({ _id: savedUser._id }, process.env.SECRET_KEY);
         
         res.cookie('token', token);
         res.json({ message: "User Added Successfully!", data: savedUser });
@@ -40,7 +38,7 @@ authRouter.post('/login', async (req, res) => {
             throw new Error("Incorrect Information, Please try again..!")
         }
 
-        const token = jwt.sign({ _id: user._id }, SECRET_KEY);
+        const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
         res.cookie('token', token);
         res.json({ message: "User logged in successfully!", data: user })
     } catch (error) {

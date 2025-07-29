@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const { SECRET_KEY } = require('../constant/static');
 const { UserModel } = require('../models/user');
 
 const jwtAuth = async (req, res, next) => {
@@ -11,7 +10,7 @@ const jwtAuth = async (req, res, next) => {
             return res.status(401).send({ message: 'Please Login..!' });
         }
 
-        const decodeMessage = await jwt.verify(token, SECRET_KEY);
+        const decodeMessage = await jwt.verify(token, process.env.SECRET_KEY);
         const { _id } = decodeMessage;
         const user = await UserModel.findOne({ _id });
 

@@ -4,6 +4,7 @@ const port = 3000;
 const connectDB = require('./config/database');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+require('dotenv').config();
 
 const authRouter = require('./router/auth');
 const profileRouter = require('./router/profile');
