@@ -5,6 +5,7 @@ const connectDB = require('./config/database');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
+require('./utilis/cronjob');
 
 const authRouter = require('./router/auth');
 const profileRouter = require('./router/profile');
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors(
     {
-        origin:"http://localhost:4200",
+        origin: "http://localhost:4200",
         credentials: true
     }
 ));
