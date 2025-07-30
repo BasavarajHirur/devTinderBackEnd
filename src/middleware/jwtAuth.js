@@ -10,7 +10,7 @@ const jwtAuth = async (req, res, next) => {
             return res.status(401).send({ message: 'Please Login..!' });
         }
 
-        const decodeMessage = await jwt.verify(token, process.env.SECRET_KEY);
+        const decodeMessage = await jwt.verify(token, process.env.JWT_SECRET_KEY);
         const { _id } = decodeMessage;
         const user = await UserModel.findOne({ _id });
 

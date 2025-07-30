@@ -3,9 +3,10 @@ const { ConnectRequestModel } = require('../models/connectionRequest');
 const { subDays, startOfDay, endOfDay } = require('date-fns');
 const sendEmail = require('./sendemail.js');
 
-cron.schedule('27 18 * * *', async () => {
+//Set crone job to run every 1st day of month at 8 PM
+cron.schedule('0 20 1 * *', async () => {
     try {
-        const yesterdayRequests = subDays(new Date(), 1);
+        const yesterdayRequests = subDays(new Date(), 0);
         const yestrdayStart = startOfDay(yesterdayRequests);
         const yestrdayEnd = endOfDay(yesterdayRequests);
 
@@ -15,7 +16,7 @@ cron.schedule('27 18 * * *', async () => {
                 $gte: yestrdayStart,
                 $lt: yestrdayEnd
             }
-        }).populate('fromUserId', 'toUserId');
+        }).populate('toUserId', 'email');
 
         const emails = [...new Set(newRequests.map(req => req.toUserId.email))];
 
