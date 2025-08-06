@@ -11,6 +11,7 @@ const authRouter = require('./router/auth');
 const profileRouter = require('./router/profile');
 const connectionRequestRouter = require('./router/connectionRequest');
 const userRouter = require('./router/user');
+const paymentRouter = require('./router/payment');
 
 app.use(express.json());
 app.use(cookieParser());
@@ -25,6 +26,7 @@ app.use('/', authRouter);
 app.use('/', profileRouter)
 app.use('/', connectionRequestRouter);
 app.use('/', userRouter);
+app.use('/', paymentRouter);
 
 connectDB().then(() => {
     console.log('connected to db');

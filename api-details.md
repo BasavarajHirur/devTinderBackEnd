@@ -20,3 +20,7 @@
 --GET/users/connection
 --GET/users/request/recived
 --GET/users/feed
+
+## Payment GateWay
+--POST/payment/order
+--POST/payment/verify

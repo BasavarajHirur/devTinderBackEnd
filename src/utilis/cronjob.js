@@ -32,5 +32,4 @@ cron.schedule('0 20 1 * *', async () => {
     } catch (error) {
         console.error('Error clearing old connection requests:', error);
     }
-}
-)
+})
