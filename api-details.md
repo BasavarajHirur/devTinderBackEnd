@@ -23,4 +23,5 @@
 
 ## Payment GateWay
 --POST/payment/order
---POST/payment/verify
+--POST/payment/webhook
+--GET/payment/premium/verify

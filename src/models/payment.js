@@ -25,12 +25,7 @@ const paymentSchema = mongoose.Schema({
         enum: ['INR', 'USD', 'EUR'], // Add more currencies as needed
     },
     status: {
-        type: String,
-        enum: {
-            values: ['created', 'paid', 'failed'],
-            message: 'Invalid status'
-        },
-        default: 'created'
+        type: String
     }
 }, { timestamps: true });
 

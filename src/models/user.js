@@ -50,7 +50,14 @@ const userSchema = mongoose.Schema({
             values: ["male", "female", "other"],
             message: "Invalid gender"
         }],
-        lowercase:true
+        lowercase: true
+    },
+    isPremium: {
+        type: Boolean,
+        default: false
+    },
+    memberShipDetails: {
+        type: String
     },
     photoUrl: {
         type: String,
