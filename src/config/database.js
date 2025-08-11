@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     await mongoose.connect(
-        process.env.DB_CONNECTION_SECRET, {
+        "mongodb+srv://basavarajhirur746:Bassu%4090711@devtinder.g5ldi.mongodb.net/DevStack", {
         tls: true,
         tlsAllowInvalidCertificates: false
     }
