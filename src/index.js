@@ -1,12 +1,11 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const result = require('dotenv').config();
-console.log('env', result);
 const connectDB = require('./config/database');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('./utilis/cronjob');
+require('dotenv').config();
 
 const authRouter = require('./router/auth');
 const profileRouter = require('./router/profile');
