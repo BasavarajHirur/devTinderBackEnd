@@ -21,6 +21,7 @@ const initializeSocket = (server) => {
             const roomId = [currentUserId, targetUserId].sort().join("_");
 
             try {
+                console.log('roo',roomId)
                 //Check currentUserID and targetUserId both are friends before sending message
                 const connection = await ConnectRequestModel.findOne({
                     $or: [
